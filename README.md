@@ -8,6 +8,17 @@ cd /home/mks/printer_data/config/ && git clone https://github.com/qidi-community
 ```
 then do a firmware restart.
 
+If you want the speed and safety part, you can include only these:
+[include config-xplus4/screws-tilt-calculate.cfg]
+[include config-xplus4/firmware-retraction.cfg]
+[include config-xplus4/gcode-macro-overhaul.cfg]
+[include config-xplus4/printer-override.cfg]
+```
+cd /home/mks/printer_data/config/ && \
+git clone https://github.com/qidi-community/config-xplus4 && \
+sed -i '/<---------------------- SAVE_CONFIG ---------------------->/i [include config-xplus4/screws-tilt-calculate.cfg]\n[include config-xplus4/firmware-retraction.cfg]\n[include config-xplus4/gcode-macro-overhaul.cfg]\n[include config-xplus4/printer-override.cfg]' printer.cfg
+```
+
 if you already installed, the current update procedure is pasting and running this line: 
 ```
 cd /home/mks/printer_data/config/ && rm -rf ./config-xplus4/ && git clone https://github.com/qidi-community/config-xplus4 
